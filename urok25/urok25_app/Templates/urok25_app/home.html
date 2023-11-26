@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DTL Demo</title>
+</head>
+<body>
+    <h1>Примеры использования DTL в Django</h1>
+
+    <!-- Тег firstof -->
+    <h2>Тег firstof</h2>
+    <p>Пример: {% firstof var1 var2 var3 %}</p>
+
+    <!-- Тег lorem -->
+    <h2>Тег lorem</h2>
+    <p>{% lorem 4 w random %}</p>
+
+    <!-- Тег with -->
+    <h2>Тег with</h2>
+    {% with total_length=long_string|length %}
+    <p>Длина строки: {{ total_length }}</p>
+    {% endwith %}
+
+    <!-- Фильтр linebreaks -->
+    <h2>Фильтр linebreaks</h2>
+    <p>{{ "This is\na string\nwith newlines"|linebreaks }}</p>
+
+    <!-- Фильтр escapejs -->
+    <h2>Фильтр escapejs</h2>
+    <script>let jsString = "{{ 'var a = "Hello World";'|escapejs }}";</script>
+
+    <!-- Фильтр timesince -->
+    <h2>Фильтр timesince</h2>
+    <p>{{ some_date|timesince }}</p>
+
+    <!-- Фильтр center -->
+    <h2>Фильтр center</h2>
+    <p>{{ "Center this text"|center:"20" }}</p>
+
+    <!-- Фильтр pprint -->
+    <h2>Фильтр pprint</h2>
+    <pre>{{ list_items|pprint }}</pre>
+
+    <!-- Фильтр linebreaksbr -->
+    <h2>Фильтр linebreaksbr</h2>
+    <p>{{ "This is\na string\nwith newlines"|linebreaksbr }}</p>
+
+    <!-- Фильтр ljust -->
+    <h2>Фильтр ljust</h2>
+    <p>{{ "Left justify this"|ljust:"20" }}</p>
+
+    <!-- Фильтр divisibleby -->
+    <h2>Фильтр divisibleby</h2>
+    <p>{{ number|divisibleby:"3" }}</p>
+
+    <!-- Фильтр slugify -->
+    <h2>Фильтр slugify</h2>
+    <p>{{ slug_string|slugify }}</p>
+
+    <!-- Фильтр escape -->
+    <h2>Фильтр escape</h2>
+    <p>{{ html_string|escape }}</p>
+
+    <!-- Фильтр filesizeformat -->
+    <h2>Фильтр filesizeformat</h2>
+    <p>{{ file_size|filesizeformat }}</p>
+
+    <!-- Фильтр slice -->
+    <h2>Фильтр slice</h2>
+    <p>{{ "Django Template Language"|slice:":7" }}</p>
+
+    <!-- Фильтр safeseq -->
+    <h2>Фильтр safeseq</h2>
+    <ul>{% for item in list_items|safeseq %}<li>{{ item }}</li>{% endfor %}</ul>
+
+    <!-- Фильтр safe -->
+    <h2>Фильтр safe</h2>
+    <p>{{ safe_string|safe }}</p>
+
+    <!-- Фильтр get_digit -->
+    <h2>Фильтр get_digit</h2>
+    <p>{{ digits|get_digit:"3" }}</p>
+
+    <!-- Фильтр truncatechars_html -->
+    <h2>Фильтр truncatechars_html</h2>
+    <p>{{ "<p>This is a very long paragraph that will be truncated.</p><p>"|truncatechars_html:20 }}</p>
+
+</body>
+</html>
